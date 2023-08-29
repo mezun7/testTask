@@ -1,0 +1,15 @@
+services:
+  test_postgresql:
+    container_name: test_postgresql
+    image: postgres:10
+    environment:
+      POSTGRES_PASSWORD: test_task
+      POSTGRES_USER: test_task
+      POSTGRES_DB: test_task
+    hostname: test_postgresql
+    init: true
+    restart: always
+    ports:
+      - "127.0.0.1:5435:5432"
+    volumes:
+      - '/var/lib/test_task/postgres:/var/lib/postgresql/data'
